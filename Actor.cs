@@ -13,16 +13,43 @@ namespace Konsolenspiel
         private int gold;
         private int attack;
 
+        public Actor(Controller control, int gold, int attack, int health)
+        {
+            this.control = control;
+            this.gold = gold;
+            this.attack = attack;
+            this.health = health;
+        }
+    
         public bool decide()
         {
             return false;
         }
 
+        public void statOutput()
+        {
+            Console.WriteLine($"Player\tHealth: {this.health}\tAttack: {this.attack}\tGold: {this.gold}");
+        }
         public void attacks(Enemy enemy)
         {
             enemy.subtractHealth(attack);
+            Console.WriteLine($"Player attacks Enemy for {attack}");
         }
 
+        public void subtractHealth(int value)
+        {
+            health -= value;
+        }
+
+        public int getHealth()
+        {
+            return health;
+        }
+
+        public void setHealth(int value)
+        {
+            this.health = value;
+        }
 
         public int getGold()
         {

@@ -8,10 +8,27 @@ namespace Konsolenspiel
 {
     internal class Trader : NPC
     {
-        void upgrade(Actor actor)
+        private int upgradeCost;
+        private int upgradeLvl;
+        public Trader(int upgradeCost, int upgradeLvl)
         {
-            actor.setGold(actor.getGold()-1);
-            actor.setAttack(actor.getAttack()+1);
+            this.upgradeCost = upgradeCost;
+            this.upgradeLvl = upgradeLvl;
+        }
+
+        public void upgrade(Actor actor)
+        {
+            if (actor.getGold() > 0)
+            {
+                actor.setGold(actor.getGold()-this.upgradeCost);
+                actor.setAttack(actor.getAttack()+this.upgradeLvl);
+                Console.WriteLine($"Trader trades you {upgradeLvl} attack for {upgradeCost} Gold.");
+            }
+            else
+            {
+                Console.WriteLine("The trader is disgusted by your poorness.");
+            }
+            Console.WriteLine("\n\n");
         }
     }
 }

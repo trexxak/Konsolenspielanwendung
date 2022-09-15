@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Konsolenspiel
 {
-    internal abstract class NPC : Entity
+    internal class NPC : Entity
     {
 
     }
