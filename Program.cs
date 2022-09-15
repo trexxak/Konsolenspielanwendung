@@ -1,0 +1,3 @@
+﻿using Konsolenspiel;
+
+MainScene.run();
